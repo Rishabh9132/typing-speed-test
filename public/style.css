@@ -195,6 +195,45 @@ kbd {
   border-radius: 12px; padding: 12px; margin-bottom: 14px; font-weight: 600; font-size: 1.05rem;
 }
 
+/* --------------------------- Hand placement guide ------------------------- */
+.hand-guide {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 18px; margin-bottom: 14px;
+}
+.hg-tip { font-size: 0.95rem; color: var(--text); margin-bottom: 14px; line-height: 1.5; }
+.hg-tip b { color: var(--accent-2); }
+.hg-hands { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; align-items: flex-end; }
+.hg-hand { text-align: center; }
+.hg-label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 8px; }
+.hg-keys { display: flex; gap: 6px; }
+.hg-key {
+  --c: var(--border);
+  min-width: 48px; padding: 8px 6px; border-radius: 10px;
+  background: var(--bg-elev); border: 1px solid var(--border);
+  border-bottom: 3px solid var(--c);
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.hg-key .hg-cap { font-weight: 700; font-size: 1.05rem; color: var(--c); }
+.hg-key .hg-fn { font-size: 0.66rem; color: var(--text-dim); text-transform: capitalize; }
+.hg-space { min-width: 130px; }
+.hg-thumbs { align-self: flex-end; }
+
+/* Collapsible primer on the lessons page */
+.hg-details { margin-bottom: 26px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); overflow: hidden; }
+.hg-details > summary { cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none; }
+.hg-details > summary::-webkit-details-marker { display: none; }
+.hg-details > summary::after { content: '▸'; float: right; color: var(--text-dim); transition: transform 0.15s; }
+.hg-details[open] > summary::after { transform: rotate(90deg); }
+.hg-details .hand-guide { margin: 0; border: none; border-top: 1px solid var(--border); border-radius: 0; }
+
+/* Finger colour legend */
+.finger-legend {
+  display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: center;
+  margin-bottom: 18px; font-size: 0.8rem; color: var(--text-dim);
+}
+.fl-item { display: inline-flex; align-items: center; gap: 6px; }
+.fl-dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+
 /* --------------------------- On-screen keyboard --------------------------- */
 .keyboard {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;

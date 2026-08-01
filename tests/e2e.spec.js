@@ -59,6 +59,19 @@ test('on-screen keyboard highlights the next key with finger guidance', async ({
   await expect(page.locator('#hint')).toContainText('finger');
 });
 
+test('hand-placement guide is shown on the lessons page and in the player', async ({ page }) => {
+  await signIn(page, learner());
+  // Lessons page: collapsible primer with home-row chips.
+  await expect(page.locator('.hg-details')).toContainText('place your hands');
+  await expect(page.locator('.hand-guide .hg-key')).not.toHaveCount(0);
+
+  // Player: full guide + finger legend.
+  await page.locator('.lesson-card').first().locator('a.lc-start').click();
+  await expect(page.locator('.hand-guide')).toBeVisible();
+  await expect(page.locator('.hand-guide')).toContainText('A S D F');
+  await expect(page.locator('.finger-legend')).toContainText('left index finger');
+});
+
 test('completing a lesson earns stars and unlocks the next', async ({ page }) => {
   const name = learner();
   await signIn(page, name);

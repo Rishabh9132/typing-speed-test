@@ -3,6 +3,7 @@ import { getUser } from '../user.js';
 import { TypingEngine } from '../typingEngine.js';
 import { createKeyboard } from '../keyboard.js';
 import { fingerHint } from '../fingerMap.js';
+import { handGuideHtml, fingerLegendHtml } from '../handGuide.js';
 
 // Renders the lesson player for `lessonKey`. Returns a cleanup function.
 export async function renderPlayer(root, lessonKey) {
@@ -47,12 +48,15 @@ export async function renderPlayer(root, lessonKey) {
 
       <div id="hint" class="finger-hint">Click the text below, then start typing.</div>
 
+      ${handGuideHtml()}
+
       <div id="display" class="text-display lesson-text" tabindex="0" role="textbox" aria-label="Lesson text"></div>
       <textarea id="input" class="hidden-input" autocomplete="off" autocorrect="off"
         autocapitalize="off" spellcheck="false" aria-hidden="true"></textarea>
       <div id="blur-hint" class="blur-hint hidden">⌨️ Click the text to keep typing</div>
 
       <div id="keyboard"></div>
+      ${fingerLegendHtml()}
 
       <div class="controls center">
         <button id="restart" class="btn">↻ Restart Lesson</button>

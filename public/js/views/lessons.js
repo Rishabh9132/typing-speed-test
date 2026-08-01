@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { getUser } from '../user.js';
+import { handGuideHtml } from '../handGuide.js';
 
 // Renders the lesson catalog grouped by unit, with progress + sequential unlock.
 export async function renderLessons(root) {
@@ -10,6 +11,10 @@ export async function renderLessons(root) {
       <p class="muted">Master touch typing one step at a time — from the home row to full fluency. Complete a lesson to unlock the next.</p>
     </header>
     <div id="lessons-progress" class="course-progress"></div>
+    <details class="hg-details" open>
+      <summary>New here? How to place your hands 👐</summary>
+      ${handGuideHtml()}
+    </details>
     <div id="units" class="units"><p class="muted">Loading lessons…</p></div>
   `;
 
