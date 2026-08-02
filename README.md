@@ -43,6 +43,16 @@ npm start                 # runs migrations + seeds, then serves on :3000
 
 Open http://localhost:3000.
 
+### Run with Docker
+
+Brings up Postgres + the app (migrations and the lesson seed run automatically on boot):
+
+```bash
+docker compose up --build
+```
+
+App → http://localhost:3000, Postgres → localhost:5432.
+
 ## Scripts
 
 | Command                  | Description                                   |
